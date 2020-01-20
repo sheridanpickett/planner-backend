@@ -1,7 +1,10 @@
 const express =require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors')
 const app = express();
+
+app.use(cors());
 
 const connectDb = require('./Utils/connectDb');
 const db = connectDb();
@@ -11,9 +14,6 @@ app.get('/', (req,res)=>{
   let query = 'SELECT * FROM TextTasks.Tasks';
 
   db.query(query, (err, result) => {
-    if (err) {
-      res.redirect('/');
-    }
     res.send(result);
   });
 })
