@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors')
 const app = express();
+const connectMongoDB = require('./Utils/connectMongoDB');
 
 app.use(cors());
+const db = connectMongoDB();
 
 app.get('/', (req,res)=>{
   res.send('hello!'); 
