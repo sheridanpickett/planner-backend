@@ -6,20 +6,16 @@ const app = express();
 
 app.use(cors());
 
-const connectDb = require('./Utils/connectDb');
-const db = connectDb();
-
-
 app.get('/', (req,res)=>{
+  res.send('hello!'); 
+})
+
+app.get('/mysql', (req,res)=>{
   let query = 'SELECT * FROM TextTasks.Tasks';
 
   db.query(query, (err, result) => {
     res.send(result);
   });
-})
-
-app.get('/test', (req,res)=>{
-  res.send('test successful'); 
 })
 
 app.get('/about', (req,res)=>{
