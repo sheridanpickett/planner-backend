@@ -3,7 +3,7 @@ assert = require('assert');
 
 
 const connectMongoDB = () => {
-  const url = 'mongodb://localhost:27017/myproject';
+  const url = 'mongodb://localhost:27017/test';
   
   MongoClient.connect(url, (err, db)=>{
     if(err) {
